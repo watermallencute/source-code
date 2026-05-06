@@ -110,6 +110,7 @@ while True:
                         print(f"\nUang kembali anda: {(pay_amount - total_cart):,}")
                         break
                 break
+        break
 
     elif menu == 5: 
         print("Keluar dari program.")
