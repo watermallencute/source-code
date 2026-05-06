@@ -1,3 +1,4 @@
+# Angela Adytha Putri
 # Python Variable, Data Types, and User Inputs
 fruit = ["apple", "orange", "grape"]
 stock = [5, 7, 6]
