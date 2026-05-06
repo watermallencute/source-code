@@ -70,9 +70,14 @@ while True:
                 print(f"Stock tidak cukup, stock {fruit[index_buy]} tinggal {stock[index_buy]}")
             
             else:
-                fruit_cart.append(fruit[index_buy])
-                qty_cart.append(to_buy)
-                price_cart.append(price[index_buy])
+                if fruit[index_buy] in fruit_cart:
+                    idx = fruit_cart.index(fruit[index_buy])
+                    qty_cart[idx] += to_buy
+
+                else:
+                    fruit_cart.append(fruit[index_buy])
+                    qty_cart.append(to_buy)
+                    price_cart.append(price[index_buy])
                 
             print("Isi Cart: ")
             print("Nama   | Qty    | Harga")
