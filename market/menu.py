@@ -5,7 +5,6 @@ price       = [10_000, 15_000, 20_000]
 
 total_price = 0
 
-index_cart  = []
 fruit_cart  = []
 qty_cart    = []
 price_cart  = []
@@ -66,7 +65,6 @@ while True:
         while True:
             index_buy = int(input("\nMasukkan index buah yang ingin dibeli: "))
             to_buy = int(input("Masukkan jumlah yang ingin dibeli: "))
-            total_price = to_buy * price[index_buy]
 
             if to_buy > stock[index_buy]:
                 print(f"Stock tidak cukup, stock {fruit[index_buy]} tinggal {stock[index_buy]}")
@@ -106,7 +104,6 @@ while True:
                         print("Terimakasih")
                         print(f"\nUang kembali anda: {(pay_amount - total_cart):,}")
                         break
-                    break
                 break
 
     elif menu == 5: 
