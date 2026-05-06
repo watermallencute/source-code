@@ -70,18 +70,6 @@ while True:
 
             if to_buy > stock[index_buy]:
                 print(f"Stock tidak cukup, stock {fruit[index_buy]} tinggal {stock[index_buy]}")
-                # print("Isi Cart: ")
-                # print("Nama   | Qty    | Harga")
-                # buy_again = input("Mau beli yang lain (ya/tidak) = ")
-                # if buy_again == "ya":
-                #     continue
-                # else:
-                #     print("Daftar Belanja:")
-                #     print("Nama   | Qty    | Harga | Total Harga")
-                #     for i in range(len(fruit)):
-                #         print(f"{fruit_cart:<6} | {qty_cart:<6} | {price[index_buy]} | {total_price}")
-                #         break
-                #     break
             
             else:
                 fruit_cart.append(fruit[index_buy])
