@@ -13,22 +13,20 @@ cart = {
 
 total_price = 0
 
-list_menu = print(' 1. Menampilkan Daftar Buah\n',
-                  '2. Menambah Buah\n',
-                  '3. Menghapus Buah\n',
-                  '4. Membeli Buah\n',
-                  '5. Exit Program')
-
-menu = int(input("Masukkan angka Menu yang ingin dijalankan: "))
-
 while True:
+    print(' 1. Menampilkan Daftar Buah\n',
+          '2. Menambah Buah\n',
+          '3. Menghapus Buah\n',
+          '4. Membeli Buah\n',
+          '5. Exit Program')
+    menu = int(input("Masukkan angka Menu yang ingin dijalankan: "))
+
     # Menampilkan Daftar Buah
     if menu == 1:
         print("Daftar buah")
         print("Index  | Nama   | Stock  | Harga")
         for i in fruit:
             print(f"{i:<6} | {fruit[i]["name"]:<6} | {fruit[i]["stock"]:<6} | {fruit[i]["price"]:<10}")
-        break
 
     # Menambah Buah
     elif menu == 2:
@@ -54,8 +52,7 @@ while True:
             print("Index  | Nama   | Stock  | Harga")
             for i in fruit:
                 print(f"{i:<6} | {fruit[i]["name"]:<6} | {fruit[i]["stock"]:<6} | {fruit[i]["price"]:<10}")
-            break
-
+            
     # Menghapus Buah
     elif menu == 3:
         print("Daftar buah")
@@ -133,7 +130,7 @@ while True:
                 print("Nama   | Qty    | Harga | Total Harga")
                 for i in range(len(name_cart)):
                     # total harga per buah
-                    total_price = qty_cart[i] * cart["price"][i]
+                    total_price = qty_cart[i] * price_cart[i]
                     # total harga seluruh belanjaan
                     total_cart += total_price
                     # print
@@ -163,4 +160,4 @@ while True:
         break
 
     else:
-        break
+        print("Pilihan tidak ada di dalam menu.")
