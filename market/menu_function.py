@@ -57,10 +57,9 @@ def add_fruit(fruit_name, fruit_stock = 0, fruit_price = 0):
     else:
         print("Produk baru gagal ditambahkan.")
 
-# def other_menu():
-#     menu_again = input("\nApakah mau memilih menu lain (ya/tidak)? ")
-#     if menu_again == "tidak":
-#         break
+def other_menu():
+    menu_again = input("\nApakah mau memilih menu lain (ya/tidak)? ")
+    return menu_again.lower() == "ya"
     
 while True:
     menu = view_menu()
@@ -78,8 +77,7 @@ while True:
             search = input("Masukkan nama buah: ")
             search_product(search)
 
-        menu_again = input("\nApakah mau memilih menu lain (ya/tidak)? ")
-        if menu_again == "tidak":
+        if not other_menu():
             break
 
     # Menambah Buah
@@ -98,8 +96,7 @@ while True:
             if confirm_msg != "ya":
                 break
 
-        menu_again = input("\nApakah mau memilih menu lain (ya/tidak)? ")
-        if menu_again == "tidak":
+        if not other_menu():
             break
             
     # Menghapus Buah
@@ -114,8 +111,7 @@ while True:
             get_product(fruit)
             break
 
-        menu_again = input("\nApakah mau memilih menu lain (ya/tidak)? ")
-        if menu_again == "tidak":
+        if not other_menu():
             break
 
     # Membeli Buah
@@ -198,8 +194,7 @@ while True:
                     break
             break
 
-        menu_again = input("\nApakah mau memilih menu lain (ya/tidak)? ")
-        if menu_again == "tidak":
+        if not other_menu():
             break
 
     # Exit Program
@@ -208,4 +203,6 @@ while True:
         break
 
     else:
-        print("Pilihan tidak ada di dalam menu.")
+        print("\nPilihan tidak ada di dalam menu.")
+        if not other_menu():
+            break
