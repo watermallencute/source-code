@@ -1,4 +1,4 @@
-print("Selamat Datang di Pasar Buah\n")
+print("Selamat Datang di Pasar Buah")
 fruit = {
     0  : {"name" : "apple" , "stock" : 20, "price" : 10_000},
     1  : {"name" : "orange", "stock" : 15, "price" : 15_000},
@@ -23,7 +23,7 @@ def view_menu(): # kalo bikin fungsi TANPA input, pas dipanggil di main menu har
     menu = int(input("Masukkan angka Menu yang ingin dijalankan: "))
     return menu
 
-def get_product(data): # Menampilkan index, nama, stock, dan harga buah sesuai index
+def get_book(data): # Menampilkan index, nama, stock, dan harga buah sesuai index
     print("\nDaftar buah")
     print("Index  | Nama   | Stock  | Harga")
     for i in data:
@@ -38,7 +38,7 @@ def search_product(search_fruit_name): # kalo bikin fungsi DENGAN input, pas dip
         fruit_name = fruit[i]["name"]
         if search_fruit_name.lower() in fruit_name.lower():
             search_result.append(i)
-    get_product(search_result)
+    get_book(search_result)
 
 def add_fruit(fruit_name, fruit_stock = 0, fruit_price = 0):
     new_index = len(fruit)
@@ -57,6 +57,10 @@ def add_fruit(fruit_name, fruit_stock = 0, fruit_price = 0):
     else:
         print("Produk baru gagal ditambahkan.")
 
+def delete_fruit(delete_fruit_id):
+    if delete_fruit_id in fruit:
+        fruit.pop(delete_fruit_id)
+
 def other_menu():
     menu_again = input("\nApakah mau memilih menu lain (ya/tidak)? ")
     return menu_again.lower() == "ya"
@@ -72,9 +76,9 @@ while True:
         
         sub_menu = input("Masukkan angka Sub-Menu yang ingin dijalankan: ")
         if sub_menu == "1":
-            get_product(fruit)
+            get_book(fruit)
         elif sub_menu == "2":
-            search = input("Masukkan nama buah: ")
+            search = input("Masukkan kata kunci buah: ")
             search_product(search)
 
         if not other_menu():
@@ -90,7 +94,7 @@ while True:
 
             add_fruit(new_name, new_stock, new_price)
 
-            get_product(fruit)
+            get_book(fruit)
 
             confirm_msg = input("Mau lanjut tambah buah (ya/tidak): ")
             if confirm_msg != "ya":
@@ -102,13 +106,12 @@ while True:
     # Menghapus Buah
     elif menu == 3:
         while True: 
-            get_product(fruit)
+            get_book(fruit)
             
             index_delete = int(input("Masukkan index buah yang ingin dihapus: "))
-            if index_delete in fruit:
-                fruit.pop(index_delete)
+            delete_fruit(index_delete)
 
-            get_product(fruit)
+            get_book(fruit)
             break
 
         if not other_menu():
@@ -117,7 +120,7 @@ while True:
     # Membeli Buah
     elif menu == 4:
         while True: 
-            get_product(fruit)
+            get_book(fruit)
 
             total_cart = 0
             
